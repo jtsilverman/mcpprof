@@ -1,0 +1,36 @@
+{
+  "name": "mcpprof",
+  "version": "0.1.0",
+  "description": "Transparent STDIO proxy that profiles MCP agent sessions — per-tool latencies, error rates, message counts.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcpprof": "bin/mcpprof.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "profiler",
+    "agent",
+    "debugging",
+    "cli",
+    "json-rpc"
+  ],
+  "author": "Jacob Silverman",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "bin/"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^6.0.2"
+  }
+}
