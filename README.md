@@ -6,7 +6,7 @@ Think `strace` for MCP.
 
 ## Demo
 
-[Screenshot placeholder]
+![mcpprof session](assets/demo.png)
 
 ## The Problem
 
