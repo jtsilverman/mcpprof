@@ -29,6 +29,11 @@ export function startProxy(command: string, args: string[]): ProxySession {
     server.stdin!.write(line + '\n')
   })
 
+  // When client stdin closes, close server stdin so it can exit gracefully
+  clientReader.on('close', () => {
+    server.stdin!.end()
+  })
+
   // Server → Client: read from server stdout, forward to our stdout
   const serverReader = createInterface({ input: server.stdout! })
   serverReader.on('line', (line) => {
