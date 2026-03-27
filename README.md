@@ -6,7 +6,7 @@ Think `strace` for MCP.
 
 ## Demo
 
-![mcpprof session](assets/demo.png)
+![mcpprof session](https://raw.githubusercontent.com/jtsilverman/mcpprof/main/assets/demo.png)
 
 ## The Problem
 

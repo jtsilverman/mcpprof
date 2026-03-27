@@ -1,6 +1,6 @@
 {
   "name": "mcpprof",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Transparent STDIO proxy that profiles MCP agent sessions — per-tool latencies, error rates, message counts.",
   "type": "module",
   "main": "dist/index.js",
