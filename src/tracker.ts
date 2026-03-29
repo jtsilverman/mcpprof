@@ -76,7 +76,7 @@ export class SessionTracker {
               responseTime: msg.timestamp,
               latencyMs: latency,
               success: !hasError,
-              error: hasError ? parsed.error!.message : undefined,
+              error: hasError ? (parsed.error?.message ?? 'Unknown error') : undefined,
             })
           }
         } else {
@@ -125,13 +125,11 @@ export class SessionTracker {
       if (!tc.success) byTool[tc.toolName].errors++
     }
     // Calculate avg latency per tool
-    for (const tc of successful) {
-      if (byTool[tc.toolName]) {
-        const tool = byTool[tc.toolName]
-        const successCount = tool.count - tool.errors
-        if (successCount > 0) {
-          tool.avgLatencyMs += tc.latencyMs! / successCount
-        }
+    for (const toolName in byTool) {
+      const successfulForTool = successful.filter(tc => tc.toolName === toolName)
+      if (successfulForTool.length > 0) {
+        const totalLatency = successfulForTool.reduce((sum, tc) => sum + tc.latencyMs!, 0)
+        byTool[toolName].avgLatencyMs = totalLatency / successfulForTool.length
       }
     }
 
